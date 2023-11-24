@@ -96,12 +96,14 @@ const Nav = () => {
               fontSize={"1.5rem"}
               color="028090"
             />
-            <button className="bg-[#02c39a] px-5 py-2 rounded-lg text-white font-semibold ml-9 items-center ">
-              Join Us
-              <span className="">
-                <BiLogInCircle fontSize={"1.5rem"} className="inline ml-1" />
-              </span>
-            </button>
+            <Link to="/login">
+              <button className="bg-[#02c39a] px-5 py-2 rounded-lg text-white font-semibold ml-9 items-center ">
+                Join Us
+                <span className="">
+                  <BiLogInCircle fontSize={"1.5rem"} className="inline ml-1" />
+                </span>
+              </button>
+            </Link>
           </div>
         </div>
       </div>
