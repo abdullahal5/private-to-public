@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "image": "https://i.ibb.co/qrDs5sh/images-4.jpg",
+    "title":"Our Hostel",
+    "description": "Welcome to our vibrant hostel! Nestled in a convenient location near campus, we offer comfortable accommodation, diverse dining options, vibrant community spaces, and round-the-clock supportive services, fostering a welcoming environment for students to thrive and connect.",
+    "rating": 4.5
+  },
+  {
+    "id": 2,
+    "image": "https://i.ibb.co/QH0ST67/images-5.jpg",
+    "title":"Our Food",
+    "description": "Indulge in a culinary journey at our hostel! Our diverse menu caters to every palate, offering nutritious and delicious meals. From hearty breakfasts to flavorful lunches and dinners, savor a dining experience designed for your satisfaction and well-being",
+    "rating": 4.7
+  },
+  {
+    "id": 3,
+    "image": "https://i.ibb.co/djJRhgJ/download-32.jpg",
+    "title":"Our Rooms",
+    "description": "Discover comfort and tranquility in our hostel rooms! Thoughtfully furnished for your relaxation, our cozy accommodations provide a serene retreat. Embrace a restful ambiance and modern amenities, ensuring a peaceful stay throughout your academic journey.",
+    "rating": 4.3
+  },
+  {
+    "id": 4,
+    "image": "https://i.ibb.co/wcCs90Q/download-33.jpg",
+    "title":"Our environment",
+    "description": "Experience a vibrant and inclusive environment at our hostel! Our community thrives on diversity, fostering connections and friendships. Engage in lively interactions, explore recreational spaces, and be part of a supportive atmosphere that feels like home away from home",
+    "rating": 4.6
+  },
+  {
+    "id": 5,
+    "image": "https://i.ibb.co/x5H30Gn/download-34.jpg",
+    "title":"Our students",
+    "description": "At our hostel, students are at the heart of everything we do. We cultivate a nurturing space that encourages growth, creativity, and collaboration. Join a dynamic community where students forge friendships, learn, and thrive together.",
+    "rating": 4.4
+  },
+  {
+    "id": 6,
+    "image": "https://i.ibb.co/jHHTM4d/download-35.jpg",
+    "title":"Our buildings",
+    "description": "Immerse yourself in our architecturally designed buildings, blending modernity and functionality. Our structures offer a harmonious blend of comfort and aesthetics, providing a conducive environment for study, relaxation, and community interactions within our hostel premises.",
+    "rating": 4.8
+  }
+]

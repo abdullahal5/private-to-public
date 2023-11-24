@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+      "package_name": "Silver",
+      "price": 299,
+      "advantages": [
+        "Access to exclusive content",
+        "Monthly member-only newsletter",
+        "15% discount on all purchases",
+        "Priority customer support"
+      ]
+    },
+    {
+        "id": 2,
+      "package_name": "Gold",
+      "price": 399,
+      "advantages": [
+        "All Silver benefits +",
+        "Exclusive webinars and workshops",
+        "25% discount on all purchases",
+        "Dedicated account manager"
+      ]
+    },
+    {
+        "id": 3,
+      "package_name": "Platinum",
+      "price": 500,
+      "advantages": [
+        "All Gold benefits +",
+        "VIP access to events",
+        "35% discount on all purchases",
+        "24/7 priority support"
+      ]
+    }
+]

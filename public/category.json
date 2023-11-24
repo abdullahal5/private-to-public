@@ -1,0 +1,58 @@
+[
+    {
+        "name": "Haddock",
+        "recipe": "Chargrilled fresh tuna steak (served medium rare) on classic Niçoise salad with French beans.",
+        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-1-370x247.jpg",
+        "category": "breakfast",
+        "rating": 4.2,
+        "price": 14.7
+    },
+    {
+        "name": "Haddock",
+        "recipe": "Chargrilled fresh tuna steak (served medium rare) on classic Niçoise salad with French beans.",
+        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-1-370x247.jpg",
+        "category": "breakfast",
+        "rating": 4.5,
+        "price": 14.7
+    },
+    {
+        "name": "Haddock",
+        "recipe": "Chargrilled fresh tuna steak (served medium rare) on classic Niçoise salad with French beans.",
+        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-1-370x247.jpg",
+        "category": "breakfast",
+        "rating": 4.0,
+        "price": 14.7
+    },
+    {
+        "name": "Haddock",
+        "recipe": "Chargrilled fresh tuna steak (served medium rare) on classic Niçoise salad with French beans.",
+        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-1-370x247.jpg",
+        "category": "lunch",
+        "rating": 4.8,
+        "price": 14.7
+    },
+    {
+        "name": "Haddock",
+        "recipe": "Chargrilled fresh tuna steak (served medium rare) on classic Niçoise salad with French beans.",
+        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-1-370x247.jpg",
+        "category": "lunch",
+        "rating": 3.5,
+        "price": 14.7
+    },
+    {
+        "name": "Escalope de Veau",
+        "recipe": "Roasted duck breast (served pink) with gratin potato and a griottine cherry sauce",
+        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-5-370x247.jpg",
+        "category": "dinner",
+        "rating": 4.5,
+        "price": 14.5
+    },
+    {
+        "name": "Escalope de Veau",
+        "recipe": "Roasted duck breast (served pink) with gratin potato and a griottine cherry sauce",
+        "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-5-370x247.jpg",
+        "category": "dinner",
+        "rating": 2.5,
+        "price": 14.5
+    }
+]
