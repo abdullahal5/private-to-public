@@ -8,16 +8,23 @@ import "swiper/css/navigation";
 import { EffectCoverflow, Pagination, Navigation, Autoplay } from "swiper/modules";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import useAxiosPublic from "../useAxiosPublic/useAxiosPublic";
 
 const ExtraSection = () => {
-  const { data: review = [] } = useQuery({
+  const axiosPublic = useAxiosPublic()
+  const { data: review = [], isLoading } = useQuery({
     queryKey: ["review"],
     queryFn: async () => {
-      const res = await axios.get("/new.json");
+      const res = await axiosPublic.get("/new");
       return res.data;
     },
   });
   // console.log(review);
+  if (isLoading) {
+    <div className="flex justify-center items-center h-[100vh]">
+      <span className="loading loading-spinner loading-lg"></span>
+    </div>;
+  }
   return (
     <div>
       <section>

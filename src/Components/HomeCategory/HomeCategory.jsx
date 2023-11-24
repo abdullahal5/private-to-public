@@ -1,14 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import Card from "../Card/Card";
+import useAxiosPublic from "../useAxiosPublic/useAxiosPublic";
 
 const HomeCategory = () => {
+  const axiosPublic = useAxiosPublic()
   const {data: food=[]} = useQuery({
     queryKey: ['category'],
     queryFn: async() =>{
-      const res = await axios.get('/category.json')
+      const res = await axiosPublic.get('/category')
       return res.data
     }
   })

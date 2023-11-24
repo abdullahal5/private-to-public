@@ -1,16 +1,22 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { FaCheck } from "react-icons/fa6";
+import useAxiosPublic from "../useAxiosPublic/useAxiosPublic";
 
 const Membership = () => {
-    const { data: membership =[] } = useQuery({
+  const axiosPublic = useAxiosPublic()
+    const { data: membership =[], isLoading } = useQuery({
       queryKey: ["premium"],
       queryFn: async () => {
-        const res = await axios.get("/membership.json");
+        const res = await axiosPublic.get("/membership");
         return res.data;
       },
     });
-    console.log(membership)
+    // console.log(membership)
+    if (isLoading) {
+      <div className="flex justify-center items-center h-[100vh]">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>;
+    }
     return (
       <div className="py-5 bg-slate-50 my-10">
         <div className="my-5">
