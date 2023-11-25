@@ -3,7 +3,7 @@ import Star from "../Star/Star";
 import { Link } from "react-router-dom";
 
 const Card = ({item}) => {
-  console.log(item)
+  // console.log(item)
     return (
       <div className="flex justify-center">
         <div className="grid grid-cols-3 gap-5">

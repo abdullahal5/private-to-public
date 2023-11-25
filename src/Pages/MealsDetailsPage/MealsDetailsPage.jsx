@@ -1,11 +1,10 @@
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Star from "../../Components/Star/Star";
 import { useEffect, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../Components/useAxiosPublic/useAxiosPublic";
-import axios from "axios";
 
 const MealsDetailsPage = () => {
     const axiosPublic = useAxiosPublic();
@@ -71,7 +70,7 @@ const MealsDetailsPage = () => {
               <p>Total Likes: {totalLikes}</p>
             </div>
             <div className="flex gap-3">
-              <Link className="w-3/4">
+              <Link to="/meals" className="w-3/4">
                 <button className="btn w-full bg-[#02c39a] text-white">
                   See All
                 </button>

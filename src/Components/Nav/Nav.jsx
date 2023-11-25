@@ -1,9 +1,26 @@
 import { Link, NavLink } from "react-router-dom";
-import Container from "../Container/Container";
 import { IoNotifications } from "react-icons/io5";
 import { BiLogInCircle } from "react-icons/bi";
+import { useContext, useState } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+import { LuUserCircle2 } from "react-icons/lu";
+import Swal from "sweetalert2";
 
 const Nav = () => {
+  const {user, logOut} = useContext(AuthContext)
+  const [isOpen, setIsOpen] = useState(false);
+  // console.log(isOpen)
+  const handleLogOut =() =>{
+    logOut()
+    .then(res => {
+      console.log('logged Out', res)
+       Swal.fire({
+         title: "Good Job!",
+         text: "you successfully logged out",
+         icon: "success",
+       });
+    })
+  }
     const links = (
       <>
         <div className="flex items-center gap-5">
@@ -91,6 +108,16 @@ const Nav = () => {
             <ul className="menu menu-horizontal px-1">{links}</ul>
           </div>
           <div className="navbar-end">
+            {user ? (
+              <img
+                onClick={() => setIsOpen(!isOpen)}
+                className="w-14 cursor-pointer h-14 rounded-[50%] mr-5"
+                src={user?.photoURL}
+                alt=""
+              />
+            ) : (
+              <LuUserCircle2 className="mr-5" fontSize={"30px"} />
+            )}
             <IoNotifications
               className="cursor-pointer "
               fontSize={"1.5rem"}
@@ -104,6 +131,41 @@ const Nav = () => {
                 </span>
               </button>
             </Link>
+
+            {isOpen && (
+              <div className="absolute rounded-xl shadow-md top-20 mr-44">
+                <div className="flex flex-col cursor-pointer">
+                  {user ? (
+                    <p className="px-4 py-3 bg-[#fff] rounded-t-xl hover:bg-neutral-100  font-semibold">
+                      {user?.displayName}
+                    </p>
+                  ) : (
+                    ""
+                  )}
+
+                  {user ? (
+                    <button
+                      onClick={handleLogOut}
+                      className="px-4 py-3 bg-[#fff] hover:bg-neutral-100  font-semibold"
+                    >
+                      Log Out
+                    </button>
+                  ) : (
+                    ""
+                  )}
+                  {user ? (
+                    <Link
+                      to="/dashboard"
+                      className="px-4 py-3 bg-[#fff] rounded-b-xl  hover:bg-neutral-100 font-semibold"
+                    >
+                      Dashboard
+                    </Link>
+                  ) : (
+                    ""
+                  )}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

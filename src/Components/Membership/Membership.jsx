@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { FaCheck } from "react-icons/fa6";
 import useAxiosPublic from "../useAxiosPublic/useAxiosPublic";
+import { Link } from "react-router-dom";
 
 const Membership = () => {
   const axiosPublic = useAxiosPublic()
@@ -78,9 +79,11 @@ const Membership = () => {
                   </p>
                 </div>
                 <div className="text-center">
-                  <button className="border bg-[#02c39a] text-white rounded-lg border-[#02c39a] w-[175px] px-2 py-2">
-                    Become Our Member
-                  </button>
+                  <Link to={`/checkout/${item.package_name}`}>
+                    <button className="border bg-[#02c39a] text-white rounded-lg border-[#02c39a] w-[175px] px-2 py-2">
+                      Become Our Member
+                    </button>
+                  </Link>
                 </div>
               </div>
             ))}

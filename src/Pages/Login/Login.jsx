@@ -1,9 +1,31 @@
+import { useContext } from "react";
 import Nav from "../../Components/Nav/Nav";
 import { FaUser, FaLock } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Components/Provider/AuthProvider";
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
+  const handleLogin = (e) =>{
+    e.preventDefault()
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const user ={
+      email, password
+    }
+    console.log(user)
+    signIn(email, password)
+    .then(res =>{
+      const user = res.user;
+       Swal.fire({
+         title: "Good Job!",
+         text: "you successfully logged in",
+         icon: "success",
+       });
+    })
+  }
     return (
       <div>
         <Nav></Nav>
@@ -23,11 +45,11 @@ const Login = () => {
           </div>
           <div className="w-[40%] font-font1 text-center ">
             <h1 className="text-3xl font-semibold">Sign In</h1>
-            <form>
+            <form onSubmit={handleLogin}>
               <div className="relative flex items-center  mx-auto my-5">
                 <input
-                  placeholder="Username"
-                  name="username"
+                  placeholder="Email"
+                  name="email"
                   className="border-none rounded-[55px] bg-[#f0f0f0] mx-auto pl-[60px] w-2/3 py-3"
                   type="text"
                 />
@@ -38,13 +60,13 @@ const Login = () => {
                   placeholder="Password"
                   name="password"
                   className="border-none rounded-[55px] bg-[#f0f0f0]  mx-auto pl-[60px] w-2/3 py-3"
-                  type="text"
+                  type="password"
                 />
                 <FaLock color="gray" className="absolute ml-28" />
               </div>
               <div className="block my-5 text-center">
                 <input
-                  className="w-1/5 bg-[#02c39a] py-3 rounded-[50px] text-white"
+                  className="w-1/5 bg-[#02c39a] py-3 cursor-pointer rounded-[50px] text-white"
                   type="submit"
                   value="Sign In"
                 />
@@ -63,7 +85,12 @@ const Login = () => {
             </form>
             <p className="py-5">
               Don't have any account?
-              <Link to='/registration' className="text-[#02c39a] underline ml-3">Sign Up</Link>
+              <Link
+                to="/registration"
+                className="text-[#02c39a] underline ml-3"
+              >
+                Sign Up
+              </Link>
             </p>
           </div>
         </div>
