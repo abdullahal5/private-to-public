@@ -1,13 +1,16 @@
 import { Link, useParams } from "react-router-dom";
 import Star from "../../Components/Star/Star";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../Components/useAxiosPublic/useAxiosPublic";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Components/Provider/AuthProvider";
 
 const MealsDetailsPage = () => {
     const axiosPublic = useAxiosPublic();
+    const {user} = useContext(AuthContext)
     const { data: category = [], isLoading } = useQuery({
       queryKey: ["category"],
       queryFn: async () => {
@@ -17,12 +20,9 @@ const MealsDetailsPage = () => {
     });
     const {id} = useParams()
     const dataFind = category?.find((item) => (item._id) === id);
-    console.log(dataFind)
+    // console.log(dataFind)
     const [liked, setLiked] = useState(false);
     const [totalLikes, setTotalLikes] = useState(0);
-    const back = () =>{
-        window.history.back()
-    }
     const handleClick = () => {
       if (!liked) {
         setLiked(true);
@@ -37,6 +37,23 @@ const MealsDetailsPage = () => {
         <div className="flex justify-center items-center h-[100vh]">
           <span className="loading loading-spinner loading-lg"></span>
         </div>
+    }
+    const request =(id) =>{
+      const data = {
+        email: user?.email, 
+        dataFind
+      };
+        axiosPublic.post('/request', data)
+        .then(res => {
+          console.log(res.data)
+          if(res.data.insertedId){
+            Swal.fire({
+              title: "Good Job!",
+              text: "you successfully requested for the meal",
+              icon: "success",
+            });
+          }
+        })
     }
     return (
       <div>
@@ -75,8 +92,8 @@ const MealsDetailsPage = () => {
                   See All
                 </button>
               </Link>
-              <button onClick={back} className="btn w-1/3">
-                Go back
+              <button onClick={()=>request(dataFind?._id)} className="btn w-1/3 text-[#02c39a]">
+                Request for this meal
               </button>
             </div>
           </div>

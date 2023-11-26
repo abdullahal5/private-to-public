@@ -79,7 +79,7 @@ const Payment = ({price, badge}) => {
         if (res?.data?.insertedId) {
           Swal.fire({
             title: "Good job!",
-            text: `Thank you for your payment and you got ${badge} badge`,
+            text: 'you successfully deleted',
             icon: "success",
           });
         }
