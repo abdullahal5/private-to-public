@@ -1,34 +1,35 @@
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import { useParams } from "react-router-dom";
-import Nav from "../../Components/Nav/Nav";
+import Payment from "../../Components/Payment/Payment";
 import useAxiosPublic from "../../Components/useAxiosPublic/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-import Payment from "../../Components/Payment/Payment";
 
 const Checkout = () => {
-    const axiosPublic = useAxiosPublic();
-    const { data: packages = [], isLoading } = useQuery({
-      queryKey: ["package"],
+    const params = useParams()
+    const axiosPublic = useAxiosPublic()
+    const { data: membership = [], isLoading } = useQuery({
+      queryKey: ["membership"],
       queryFn: async () => {
         const res = await axiosPublic.get("/membership");
         return res.data;
       },
     });
-    const { packageName } = useParams();
-    const dataFind = packages?.find(
-      (item) => item?.package_name === packageName
+    
+    const filter = membership?.filter(item => item?.package_name === params?.packageName)
+    console.log(filter)
+    const stripePromise = loadStripe(
+      "pk_test_51OEpkQD6HiOKUnrgGvScdxR6WDgFLqYyi5dM1CcaBE8M6PrWsVerdD7qsSISAWm5eA9CoZGMxAxa36F3WkyDhQvA00niqpiWUZ"
     );
-    const price = dataFind?.price
-    const badge = dataFind?.package_name;
-    const stripePromise = loadStripe('pk_test_51OEpkQD6HiOKUnrgGvScdxR6WDgFLqYyi5dM1CcaBE8M6PrWsVerdD7qsSISAWm5eA9CoZGMxAxa36F3WkyDhQvA00niqpiWUZ')
+    
     return (
-        <div>
-            <Nav></Nav>
-            <Elements stripe={stripePromise}>
-                <Payment price={price} badge={badge}></Payment>
-            </Elements>
-        </div>
+      <div>
+        <Elements stripe={stripePromise}>
+          {filter.map((i) => (
+            <Payment key={i._id} price={i.price} badge={i?.package_name}></Payment>
+          ))}
+        </Elements>
+      </div>
     );
 };
 

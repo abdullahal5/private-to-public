@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../../Components/Provider/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../Components/useAxiosPublic/useAxiosPublic";
 
 const Registration = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
@@ -15,13 +16,22 @@ const Registration = () => {
     reset,
     formState: { errors },
   } = useForm();
+  const axiosPublic = useAxiosPublic()
   const onSubmit = data => {
-    // console.log(data.email, data.password)
+    console.log(data)
     createUser(data.email, data.password)
     .then((result) => {
       console.log(result.user)
       updateUserProfile(data.name, data.photo)
-      .then(res =>{
+      .then(() =>{
+        const userInfo = {
+          name: data.name,
+          email: data.email
+        }
+        axiosPublic.post('/users', userInfo)
+        .then(res =>{
+          console.log(res.data)
+        })
         Swal.fire({
           title: "congratulations!",
           text: "You got a bronze badge!",

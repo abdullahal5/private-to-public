@@ -70,6 +70,7 @@ const MealsDetailsPage = () => {
       const inputReview = {
         dataId: dataFind?._id,
         email: user?.email,
+        dataFind,
         review,
         name: user?.displayName,
         image: user?.photoURL,

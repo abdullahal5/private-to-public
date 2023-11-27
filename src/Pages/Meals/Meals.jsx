@@ -11,7 +11,7 @@ const Meals = () => {
   const axiosPublic = useAxiosPublic();
   const [selectedOption, setSelectedOption] = useState(null);
    const [minPrice, setMinPrice] = useState(0);
-   console.log(minPrice)
+  //  console.log(minPrice)
   const { data: meal = [] } = useQuery({
     queryKey: ["meal"],
     queryFn: async () => {

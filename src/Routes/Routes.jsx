@@ -11,6 +11,9 @@ import MyProfile from "../Pages/Dashboard/MyProfile";
 import RequestedMeals from "../Pages/Dashboard/RequestedMeals";
 import MyReview from "../Pages/Dashboard/MyReview";
 import Checkout from "../Pages/Checkout/Checkout";
+import AdminProfile from "../Pages/AdminDashboard/AdminProfile";
+import ManageUser from "../Pages/AdminDashboard/ManageUser";
+import AddMeal from "../Pages/AdminDashboard/AddMeal";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +57,18 @@ const router = createBrowserRouter([
       {
         path: "MyReview",
         element: <MyReview></MyReview>,
+      },
+      {
+        path: "adminProfile",
+        element: <AdminProfile></AdminProfile>,
+      },
+      {
+        path: "manageUsers",
+        element: <ManageUser></ManageUser>,
+      },
+      {
+        path: "addMeal",
+        element: <AddMeal></AddMeal>,
       },
     ],
   },
