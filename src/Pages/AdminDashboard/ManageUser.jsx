@@ -22,6 +22,9 @@ const ManageUser = () => {
     // console.log(payment)
     return (
       <div>
+        <div>
+            <h1 className="text-3xl text-center font-semibold mt-5">All users</h1>
+        </div>
         <div className="overflow-x-auto">
           <table className="table my-10">
             <thead>

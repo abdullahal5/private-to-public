@@ -20,7 +20,6 @@ const MealsDetailsPage = () => {
     });
     const {id} = useParams()
     const dataFind = category?.find((item) => (item._id) === id);
-    // console.log(dataFind)
     const [liked, setLiked] = useState(false);
     const [totalLikes, setTotalLikes] = useState(0);
     const handleClick = () => {
@@ -38,10 +37,11 @@ const MealsDetailsPage = () => {
           <span className="loading loading-spinner loading-lg"></span>
         </div>
     }
-    const request =(id) =>{
+    const request =() =>{
       const data = {
         email: user?.email, 
-        dataFind
+        dataFind,
+        status: 'pending'
       };
         axiosPublic.post('/request', data)
         .then(res => {
@@ -88,6 +88,7 @@ const MealsDetailsPage = () => {
         }
       });
     }
+    // console.log(dataFind)
     const iddd = review.filter(item => item.dataId === dataFind?._id)
      return (
        <div>
@@ -105,10 +106,13 @@ const MealsDetailsPage = () => {
              <h1 className="text-3xl">See Details about the product</h1>
              <hr className="w-96 border-[#02c39a]" />
              <p className="text-3xl">Title: {dataFind?.name}</p>
-             <p className="text-4xl">Price: {dataFind?.price}</p>
+             <p className="text-4xl">Price: ${dataFind?.price}</p>
              <span className="flex text-lg">
                Reviews: <Star rating={dataFind?.rating}></Star>
              </span>
+             <p>Ingradients: {dataFind?.ingredients}</p>
+             <p>Date: {dataFind?.date}</p>
+             <p>Description: {dataFind?.description}</p>
              <p className=" italic text-left">{dataFind?.recipe}</p>
              <div>
                <button onClick={handleClick}>
@@ -127,7 +131,7 @@ const MealsDetailsPage = () => {
                  </button>
                </Link>
                <button
-                 onClick={() => request(dataFind?._id)}
+                 onClick={request}
                  className="btn w-1/3 text-[#02c39a]"
                >
                  Request for this meal

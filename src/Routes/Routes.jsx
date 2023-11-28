@@ -14,6 +14,9 @@ import Checkout from "../Pages/Checkout/Checkout";
 import AdminProfile from "../Pages/AdminDashboard/AdminProfile";
 import ManageUser from "../Pages/AdminDashboard/ManageUser";
 import AddMeal from "../Pages/AdminDashboard/AddMeal";
+import AllMeal from "../Pages/AdminDashboard/AllMeal";
+import ServeMeals from "../Pages/AdminDashboard/ServeMeals";
+import AllReview from "../Pages/AdminDashboard/AllReview";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +73,22 @@ const router = createBrowserRouter([
         path: "addMeal",
         element: <AddMeal></AddMeal>,
       },
+      {
+        path: "upcomingmeals",
+        element: <UpcomingMeals></UpcomingMeals>,
+      },
+      {
+        path: "allMeals",
+        element: <AllMeal></AllMeal>,
+      },
+      {
+        path: "serve",
+        element: <ServeMeals></ServeMeals>,
+      },
+      {
+        path: 'allreview',
+        element: <AllReview></AllReview>
+      }
     ],
   },
   {

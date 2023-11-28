@@ -45,7 +45,7 @@ const RequestedMeals = () => {
                   <td>{item?.dataFind?.name}</td>
                   <td>0</td>
                   <td>0</td>
-                  <td>pending</td>
+                  <td>{item.status}</td>
                   <button onClick={() =>handleDelete(item._id)} className="bg-[#02c39a] text-white font-semibold">
                     <td>Cancel</td>
                   </button>

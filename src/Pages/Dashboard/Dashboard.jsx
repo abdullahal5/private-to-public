@@ -2,6 +2,10 @@ import { NavLink, Outlet } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { GiForkKnifeSpoon } from "react-icons/gi";
 import { VscPreview } from "react-icons/vsc";
+import { FaUsersGear } from "react-icons/fa6";
+import { IoMdAddCircle } from "react-icons/io";
+import { MdRateReview, MdUpcoming } from "react-icons/md";
+import { LuTally4 } from "react-icons/lu";
 
 const Dashboard = () => {
   const isAdmin = true
@@ -29,7 +33,7 @@ const Dashboard = () => {
                 <li>
                   <NavLink to="/dashboard/manageUsers">
                     <span className="flex items-center py-3 border-b border-gray-300  hover:bg-neutral-50 pl-3 gap-3">
-                      <CgProfile
+                      <FaUsersGear
                         color="#02c39a"
                         fontSize={"2rem"}
                         className="inline"
@@ -41,12 +45,60 @@ const Dashboard = () => {
                 <li>
                   <NavLink to="/dashboard/addMeal">
                     <span className="flex items-center py-3 border-b border-gray-300  hover:bg-neutral-50 pl-3 gap-3">
-                      <CgProfile
+                      <IoMdAddCircle
                         color="#02c39a"
                         fontSize={"2rem"}
                         className="inline"
                       />
                       <h1 className="text-xl">Add Meal</h1>
+                    </span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/upcomingmeals">
+                    <span className="flex items-center border-gray-300 gap-3 py-3 border-b hover:bg-neutral-100 pl-3">
+                      <MdUpcoming
+                        color="#02c39a"
+                        fontSize={"2rem"}
+                        className="inline"
+                      />
+                      <h1 className="text-xl">Upcomin Meals</h1>
+                    </span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/serve">
+                    <span className="flex items-center border-gray-300 gap-3 py-3 border-b hover:bg-neutral-100 pl-3">
+                      <MdUpcoming
+                        color="#02c39a"
+                        fontSize={"2rem"}
+                        className="inline"
+                      />
+                      <h1 className="text-xl">Serve Meals</h1>
+                    </span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/allMeals">
+                    <span className="flex items-center border-gray-300 gap-3 py-3 border-b hover:bg-neutral-100 pl-3">
+                      <LuTally4
+                        color="#02c39a"
+                        fontSize={"2rem"}
+                        className="inline"
+                      />
+                      <h1 className="text-xl">All Meals</h1>
+                    </span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/allreview">
+                    <span className="flex items-center border-gray-300 gap-3 py-3 border-b hover:bg-neutral-100 pl-3">
+                      <MdRateReview
+                        color="#02c39a"
+                        fontSize={"2rem"}
+                        className="inline"
+                      />
+                      <h1 className="text-xl">All Review</h1>
                     </span>
                   </NavLink>
                 </li>
