@@ -6,7 +6,7 @@ const Card = ({item}) => {
   // console.log(item)
     return (
       <div className="flex justify-center">
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-flow-col-2 lg:grid-cols-3 gap-5">
           {item?.map((i) => (
               
             <div key={i._id} className="card w-96 bg-base-100  shadow-xl">

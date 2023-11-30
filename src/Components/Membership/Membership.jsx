@@ -34,7 +34,7 @@ const Membership = () => {
           </p>
         </div>
         <div className="flex items-center justify-center">
-          <div className="grid grid-cols-3 gap-10">
+          <div className="grid lg:grid-cols-3 gap-10">
             {membership.map((item) => (
               <div
                 key={item.id}

@@ -16,6 +16,8 @@ const AddMeal = () => {
           "content-type": "multipart/form-data",
         },
       });
+      // console.log(imageFile)
+      // console.log(res.data.data.display_url);
       const dd = {
         name: data.name,
         category: data.category,
@@ -46,7 +48,7 @@ const AddMeal = () => {
     };
      const handleUpcomingMeal = () => {
        const formData = getValues()
-      //  console.log(formData)
+       console.log(formData)
        axiosPublic.post('/upcoming', formData)
        .then(res => {
         // console.log(res.data)

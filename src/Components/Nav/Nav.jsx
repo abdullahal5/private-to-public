@@ -23,7 +23,7 @@ const Nav = () => {
   }
     const links = (
       <>
-        <div className="flex items-center gap-5">
+        <div className="flex lg:flex-row md:flex-row flex-col items-center gap-5">
           <NavLink
             to="/"
             className={({ isActive, isPending }) =>

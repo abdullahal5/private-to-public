@@ -18,6 +18,7 @@ import AllMeal from "../Pages/AdminDashboard/AllMeal";
 import ServeMeals from "../Pages/AdminDashboard/ServeMeals";
 import AllReview from "../Pages/AdminDashboard/AllReview";
 import UpcomingMeal from "../Pages/AdminDashboard/UpcomingMeal";
+import PrivateRoute from "../Components/private/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -42,54 +43,102 @@ const router = createBrowserRouter([
       },
       {
         path: "/checkout/:packageName",
-        element: <Checkout></Checkout>,
+        element: (
+          <PrivateRoute>
+            <Checkout></Checkout>
+          </PrivateRoute>
+        ),
       },
     ],
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "myProfile",
-        element: <MyProfile></MyProfile>,
+        element: (
+          <PrivateRoute>
+            <MyProfile></MyProfile>
+          </PrivateRoute>
+        ),
       },
       {
         path: "requestedMeals",
-        element: <RequestedMeals></RequestedMeals>,
+        element: (
+          <PrivateRoute>
+            <RequestedMeals></RequestedMeals>
+          </PrivateRoute>
+        ),
       },
       {
         path: "MyReview",
-        element: <MyReview></MyReview>,
+        element: (
+          <PrivateRoute>
+            <MyReview></MyReview>
+          </PrivateRoute>
+        ),
       },
       {
         path: "adminProfile",
-        element: <AdminProfile></AdminProfile>,
+        element: (
+          <PrivateRoute>
+            <AdminProfile></AdminProfile>
+          </PrivateRoute>
+        ),
       },
       {
         path: "manageUsers",
-        element: <ManageUser></ManageUser>,
+        element: (
+          <PrivateRoute>
+            <ManageUser></ManageUser>
+          </PrivateRoute>
+        ),
       },
       {
         path: "addMeal",
-        element: <AddMeal></AddMeal>,
+        element: (
+          <PrivateRoute>
+            <AddMeal></AddMeal>
+          </PrivateRoute>
+        ),
       },
       {
         path: "upcomingmeals",
-        element: <UpcomingMeal></UpcomingMeal>
+        element: (
+          <PrivateRoute>
+            <UpcomingMeal></UpcomingMeal>
+          </PrivateRoute>
+        ),
       },
       {
         path: "allMeals",
-        element: <AllMeal></AllMeal>,
+        element: (
+          <PrivateRoute>
+            <AllMeal></AllMeal>
+          </PrivateRoute>
+        ),
       },
       {
         path: "serve",
-        element: <ServeMeals></ServeMeals>,
+        element: (
+          <PrivateRoute>
+            <ServeMeals></ServeMeals>
+          </PrivateRoute>
+        ),
       },
       {
-        path: 'allreview',
-        element: <AllReview></AllReview>
-      }
+        path: "allreview",
+        element: (
+          <PrivateRoute>
+            <AllReview></AllReview>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
   {

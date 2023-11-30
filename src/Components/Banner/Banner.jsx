@@ -3,9 +3,9 @@ import { IoSearch } from "react-icons/io5";
 const Banner = () => {
     return (
       <div className="h-[90vh] bg-slate-50  px-10">
-        <div className="flex items-center justify-between ">
-          <div className=" space-y-5 w-[50%]">
-            <h1 className="font-font1 text-4xl">
+        <div className="flex lg:flex-row  md:flex-row flex-col items-center justify-between ">
+          <div className=" space-y-5 lg:w-[50%] md:w-[50%] mt-5">
+            <h1 className="font-font1 lg:text-4xl md:text-3xl text-3xl">
               Discover Comfort <br /> & Find Your Perfect Meal
               <br /> at Hostel
               <span className="text-[#02c39a]">Heaven</span>
@@ -19,9 +19,9 @@ const Banner = () => {
             </p>
             <hr className="w-96  border-[#02c39a]" />
           </div>
-          <div className="w-[40%] ">
+          <div className="lg:w-[40%] ">
             <img
-              className="w-full"
+              className="lg:w-full md:w-full w-[300px]"
               src="https://i.ibb.co/jgXpjyp/iftar.png"
               alt=""
             />

@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../Components/useAxiosPublic/useAxiosPublic";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Components/Provider/AuthProvider";
+import { Toaster } from "react-hot-toast";
 
 const MealsDetailsPage = () => {
     const axiosPublic = useAxiosPublic();
@@ -102,6 +103,9 @@ const MealsDetailsPage = () => {
 
      return (
        <div>
+         <div>
+           <Toaster />
+         </div>
          <h1 className="text-3xl font-font1 text-center pt-10 pb-5 text-[#02c39a]">
            Details
          </h1>
@@ -140,10 +144,7 @@ const MealsDetailsPage = () => {
                    See All
                  </button>
                </Link>
-               <button
-                 onClick={request}
-                 className="btn w-1/3 text-[#02c39a]"
-               >
+               <button onClick={request} className="btn w-1/3 text-[#02c39a]">
                  Request for this meal
                </button>
              </div>
