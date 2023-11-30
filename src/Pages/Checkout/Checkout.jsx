@@ -17,7 +17,7 @@ const Checkout = () => {
     });
     
     const filter = membership?.filter(item => item?.package_name === params?.packageName)
-    console.log(filter)
+    // console.log(filter)
     const stripePromise = loadStripe(
       "pk_test_51OEpkQD6HiOKUnrgGvScdxR6WDgFLqYyi5dM1CcaBE8M6PrWsVerdD7qsSISAWm5eA9CoZGMxAxa36F3WkyDhQvA00niqpiWUZ"
     );

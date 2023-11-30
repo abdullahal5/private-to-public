@@ -30,10 +30,10 @@ const AddMeal = () => {
         title: data.title,
         date: data.date
       }
-      console.log(dd)
+      // console.log(dd)
       axiosPublic.post("/category", dd)
       .then(res => {
-        console.log(res.data)
+        // console.log(res.data)
         if(res.data.insertedId){
           reset()
            Swal.fire({
@@ -46,10 +46,10 @@ const AddMeal = () => {
     };
      const handleUpcomingMeal = () => {
        const formData = getValues()
-       console.log(formData)
+      //  console.log(formData)
        axiosPublic.post('/upcoming', formData)
        .then(res => {
-        console.log(res.data)
+        // console.log(res.data)
          if(res.data.insertedId){
           reset();
           Swal.fire({

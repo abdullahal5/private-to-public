@@ -12,11 +12,11 @@ const AllMeal = () => {
       return res.data;
     },
   });
-  console.log(allMeals);
+  // console.log(allMeals);
   const handleDelete =(id) =>{
      axiosPublic.delete(`/category/${id}`)
     .then(res =>{
-        console.log(res.data)
+        // console.log(res.data)
         if(res.data.deletedCount){
             refetch()
              Swal.fire({

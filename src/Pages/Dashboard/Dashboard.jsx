@@ -2,13 +2,27 @@ import { NavLink, Outlet } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { GiForkKnifeSpoon } from "react-icons/gi";
 import { VscPreview } from "react-icons/vsc";
-import { FaUsersGear } from "react-icons/fa6";
+import { FaServer, FaUsersGear } from "react-icons/fa6";
 import { IoMdAddCircle } from "react-icons/io";
 import { MdRateReview, MdUpcoming } from "react-icons/md";
 import { LuTally4 } from "react-icons/lu";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../Components/useAxiosPublic/useAxiosPublic";
+import { useContext } from "react";
+import { AuthContext } from "../../Components/Provider/AuthProvider";
 
 const Dashboard = () => {
-  const isAdmin = true
+  const axiosPublic = useAxiosPublic()
+  const { user, loading } = useContext(AuthContext);
+  const { data: isAdmin, isPending: isAdminLoading } = useQuery({
+    queryKey: [user?.email, "isAdmin"],
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/users/${user?.email}`);
+      // console.log(res.data);
+      return res.data;
+    },
+  });
+  // console.log(isAdmin.role);
     return (
       <div className="flex gap-10">
         <div className="w-64 min-h-screen bg-gray-200">
@@ -16,7 +30,7 @@ const Dashboard = () => {
             <h1 className="text-3xl text-[#02c39a] pt-5 pb-10 text-center">
               Dashboard
             </h1>
-            {isAdmin ? (
+            {isAdmin?.role === 'admin' ? (
               <div>
                 <li>
                   <NavLink to="/dashboard/adminProfile">
@@ -69,7 +83,7 @@ const Dashboard = () => {
                 <li>
                   <NavLink to="/dashboard/serve">
                     <span className="flex items-center border-gray-300 gap-3 py-3 border-b hover:bg-neutral-100 pl-3">
-                      <MdUpcoming
+                      <FaServer
                         color="#02c39a"
                         fontSize={"2rem"}
                         className="inline"

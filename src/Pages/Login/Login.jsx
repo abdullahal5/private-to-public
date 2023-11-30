@@ -2,12 +2,15 @@ import { useContext } from "react";
 import Nav from "../../Components/Nav/Nav";
 import { FaUser, FaLock } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Components/Provider/AuthProvider";
+import useAxiosPublic from "../../Components/useAxiosPublic/useAxiosPublic";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, googleSignIn } = useContext(AuthContext);
+  const navigate = useNavigate()
+  const axiosPublic = useAxiosPublic()
   const handleLogin = (e) =>{
     e.preventDefault()
     const email = e.target.email.value;
@@ -25,6 +28,30 @@ const Login = () => {
          icon: "success",
        });
     })
+  }
+  const handleGoogleLogin = () =>{
+    console.log('ok')
+    googleSignIn()
+      .then((res) => {
+        console.log(res.user);
+       const us = {
+        name: res.user.displayName,
+        email: res.user.email,
+        role: 'guest'
+       }
+       axiosPublic.post("/users", us).then((res) => {
+         console.log(res.data);
+       });
+        Swal.fire({
+          title: "Good job!",
+          text: "Logged in successful!",
+          icon: "success",
+        });
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
     return (
       <div>
@@ -72,17 +99,17 @@ const Login = () => {
                 />
               </div>
               <div className="divider">OR</div>
-              <div>
-                <button
-                  className="w-3/5 bg-white text-[#02c39a] py-3 rounded-[50px] border border-[#02c39a] "
-                  type="submit"
-                  value="Sign In"
-                >
-                  <FcGoogle className="inline mr-3" fontSize={"1.5rem"} />
-                  Google Sign In
-                </button>
-              </div>
+              <div></div>
             </form>
+            <button
+              onClick={handleGoogleLogin}
+              className="w-3/5 bg-white text-[#02c39a] py-3 rounded-[50px] border border-[#02c39a] "
+              type="submit"
+              value="Sign In"
+            >
+              <FcGoogle className="inline mr-3" fontSize={"1.5rem"} />
+              Google Sign In
+            </button>
             <p className="py-5">
               Don't have any account?
               <Link

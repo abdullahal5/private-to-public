@@ -11,7 +11,7 @@ const AllReview = () => {
       return res.data;
     },
   });
-  console.log(review);
+  // console.log(review);
   const handleDelete = (_id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -24,7 +24,7 @@ const AllReview = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosPublic.delete(`/review/${_id}`).then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           if (res.data.deletedCount) {
             refetch()
             Swal.fire({
@@ -39,6 +39,7 @@ const AllReview = () => {
   };
   return (
     <div>
+      <h1 className="text-3xl text-center my-5">All Review </h1>
       <div className="overflow-x-auto">
         <table className="table">
           <thead className="bg-gray-200">

@@ -22,7 +22,7 @@ const Payment = ({price, badge}) => {
       axiosPublic
         .post("/create-payment-intent", { price: totalPrice })
         .then((res) => {
-          console.log(res?.data?.clientSecret);
+          // console.log(res?.data?.clientSecret);
           const data = res?.data?.clientSecret;
           setClientSecret(data);
         });
@@ -42,10 +42,10 @@ const Payment = ({price, badge}) => {
       card,
     });
     if (error) {
-      console.log("payment error", error);
+      // console.log("payment error", error);
       setError(error.message);
     } else {
-      console.log("payment Method", paymentMethod);
+      // console.log("payment Method", paymentMethod);
       setError("");
     }
 
@@ -61,11 +61,11 @@ const Payment = ({price, badge}) => {
         },
       });
     if (confirmError) {
-      console.log("confirm error");
+      // console.log("confirm error");
     } else {
-      console.log("payment intent", paymentIntent);
+      // console.log("payment intent", paymentIntent);
       if (paymentIntent.status === "succeeded") {
-        console.log("trnasaction id", paymentIntent.id);
+        // console.log("trnasaction id", paymentIntent.id);
         setTransactionId(paymentIntent.id);
         const payment = {
           email: user?.email,
@@ -75,7 +75,7 @@ const Payment = ({price, badge}) => {
           badge: badge
         };
         const res = await axiosPublic.post("/payments", payment);
-        console.log(res.data);
+        // console.log(res.data);
         if (res?.data?.insertedId) {
           Swal.fire({
             title: "Good job!",

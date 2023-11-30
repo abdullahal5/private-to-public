@@ -24,7 +24,7 @@ const Meals = () => {
     setInputText(e.target.value);
   };
   const filtered = meal.filter((item) => {
-    const textMatch = item.name.toLowerCase().includes(inputText.toLowerCase());
+    const textMatch = item?.title?.toLowerCase().includes(inputText.toLowerCase());
     const categoryMatch =!selectedOption || item.category === selectedOption?.value;
     const priceMatch = minPrice === 0 || item.price <= minPrice;
     

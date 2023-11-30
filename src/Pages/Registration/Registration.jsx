@@ -26,8 +26,9 @@ const Registration = () => {
       .then(() =>{
         const userInfo = {
           name: data.name,
-          email: data.email
-        }
+          email: data.email,
+          role: "admin",
+        };
         axiosPublic.post('/users', userInfo)
         .then(res =>{
           console.log(res.data)

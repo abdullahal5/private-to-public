@@ -22,11 +22,20 @@ const MealsDetailsPage = () => {
     const dataFind = category?.find((item) => (item._id) === id);
     const [liked, setLiked] = useState(false);
     const [totalLikes, setTotalLikes] = useState(0);
+    // console.log(dataFind?._id)
+
     const handleClick = () => {
+      const allLikes = {
+        totalLikes
+      }
       if (!liked) {
         setLiked(true);
         const updatedLikes = totalLikes + 1;
         setTotalLikes(updatedLikes);
+        axiosPublic.patch(`/category/${dataFind?._id}`, allLikes)
+        .then(res => {
+          // console.log(res.data)
+        })
       }
     };
     useEffect(() => {
@@ -45,7 +54,7 @@ const MealsDetailsPage = () => {
       };
         axiosPublic.post('/request', data)
         .then(res => {
-          console.log(res.data)
+          // console.log(res.data)
           if(res.data.insertedId){
             Swal.fire({
               title: "Good Job!",
@@ -90,6 +99,7 @@ const MealsDetailsPage = () => {
     }
     // console.log(dataFind)
     const iddd = review.filter(item => item.dataId === dataFind?._id)
+
      return (
        <div>
          <h1 className="text-3xl font-font1 text-center pt-10 pb-5 text-[#02c39a]">
@@ -155,7 +165,9 @@ const MealsDetailsPage = () => {
                <button
                  className="text-white bg-[#02c39a] px-3 py-2 font-semibold block mx-auto my-5 rounded-lg cursor-pointer"
                  type="submit"
-                >Sumbit</button>
+               >
+                 Sumbit
+               </button>
              </form>
            </div>
            <div className=" my-10">

@@ -20,7 +20,7 @@ const ServeMeals = () => {
       [_id]: true, 
     }));
   };
-console.log(requestStatus)
+// console.log(requestStatus)
   return (
     <div>
       <div>
